@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact us</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url('my2.jpg');
+            background-color: gray;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(6, 8, 0);
+            flex-direction: column;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .div1{
+            border-radius: 30px;
+            padding: 50px;
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        input[type='text'],
+        input[type='email'],
+        input[type='password'],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type='submit'],
+        input[type='reset'],
+        .back-button {
+            background-color: orange;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            transition: 0.5s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            background-color: antiquewhite;
+        }
+
+        input[type='submit']:hover,
+        input[type='reset']:hover,
+        .back-button:hover {
+            background-color: rgba(57, 40, 207, 0.837);
+            transform: scale(1.15);
+            cursor: pointer;
+        }
+        .back-button{
+            text-decoration: none;
+        }
+        h2 {
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .back {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back a {
+            color: white;
+            background-color: orange;
+            padding: 12px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        .back a:hover {
+            background-color: rgba(57, 40, 207, 0.837);
+            transform: scale(1.15);
+        }
+
+        .orange {
+            color: orange;
+            font-size: 30px;
+        }
+
+        .me {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <form action="" method="POST" onsubmit="return validateForm()">
+            <h2><span class="orange">Contact </span> <span class="me">me</span></h2>
+            <label for="name">Name:</label>
+            <input type="text" placeholder="First name last name" id="name" name="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="someone@example.com" required><br>
+            <label for="cities">Select City:</label>
+            <select name="cities" id="cities" required>
+                <option value="">Select</option>
+                <option value="Noida">Noida</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+            </select><br>
+            <label for="address">Address:</label>
+            <textarea id="address" cols="30" rows="5" name="address" placeholder="Address" required></textarea><br>
+            <label>Gender:</label>
+            <input type="radio" value="male" name="gender" required> Male
+            <input type="radio" value="female" name="gender"> Female
+            <input type="radio" value="others" name="gender"> Others<br>
+            <label for="upload">Upload File:</label>
+            <input type="file" name="file"><br><br>
+
+            <div class="button-container">
+                <input type="submit" value="SUBMIT FORM">
+                <input type="reset" value="RESET">
+                <a href="index.html" class="back-button">Back to Home</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const namePattern = /^[A-Za-z\s]{3,}$/;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!namePattern.test(name)) {
+                alert("Name must be at least 3 characters long and contain only letters and spaces.");
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            return confirm("Are you sure you want to submit the form?");
+        }
+    </script>
+</body>
+
+</html>
